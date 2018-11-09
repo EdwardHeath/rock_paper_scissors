@@ -6,9 +6,62 @@
 <body>
 	<script>
 		function computerPlay() {
-			
+			let computerChoice = Math.floor(Math.random() * 3)
+			switch(computerChoice) {
+				case 0:
+					return "Rock";
+					break;
+				case 1:
+					return "Paper";
+					break;
+				case 2:
+					return "Scissors";
+					break;
+				default:
+					break;
+			}
+			return "Something's wrong"
 		}
 
+		function playGame(playerSelection, computerSelection) {
+			if (playerSelection === "Rock" && computerSelection === "Scissors") {
+				console.log("Rock smashes Scissors. Player wins!");
+			} else if (playerSelection === "Paper" && computerSelection === "Rock") {
+				console.log("Paper covers Rock. Player wins!");
+			} else if (playerSelection === "Scissors" && computerSelection === "Paper") {
+				console.log("Scissors cuts Paper. Player wins!");
+			} else if (playerSelection === "Rock" && computerSelection === "Paper") {
+				console.log("Paper covers Rock. Player loses. :(");
+			} else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+				console.log("Scissors cuts Paper. Player loses. :(");
+			} else if (playerSelection === "Scissors" && computerSelection === "Rock") {
+				console.log("Rock smashes Scissors. Player loses. :(");
+			} else {
+				console.log("It's a tie. Play again.")
+			}
+		}
+
+		function game() {
+			let computerSelection = computerPlay();
+			let playerSelection = window.prompt("Rock, Paper, or Scissors?");
+
+			if (playerSelection != null) {
+				if (playerSelection.toLowerCase() === "rock") {
+					playGame("Rock", computerSelection);
+					return;
+				} else if (playerSelection.toLowerCase() === "paper") {
+					playGame("Paper", computerSelection);
+					return;
+				} else if (playerSelection.toLowerCase() === "scissors") {
+					playGame("Scissors", computerSelection);
+					return;
+				}
+			}
+			console.log("Invalid selection. Please enter 'Rock', 'Paper', or 'Scissors'")
+		}
+		while (true) {
+			game();
+		}
 	</script>
 </body>
 </html>
