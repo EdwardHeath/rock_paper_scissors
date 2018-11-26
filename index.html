@@ -25,19 +25,19 @@
 
 		function playGame(playerSelection, computerSelection) {
 			if (playerSelection === "Rock" && computerSelection === "Scissors") {
-				console.log("Rock smashes Scissors. Player wins!");
+				return "Rock smashes Scissors. Player wins!";
 			} else if (playerSelection === "Paper" && computerSelection === "Rock") {
-				console.log("Paper covers Rock. Player wins!");
+				return "Paper covers Rock. Player wins!";
 			} else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-				console.log("Scissors cuts Paper. Player wins!");
+				return "Scissors cuts Paper. Player wins!";
 			} else if (playerSelection === "Rock" && computerSelection === "Paper") {
-				console.log("Paper covers Rock. Player loses. :(");
+				return "Paper covers Rock. Player loses. :(";
 			} else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-				console.log("Scissors cuts Paper. Player loses. :(");
+				return "Scissors cuts Paper. Player loses. :(";
 			} else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-				console.log("Rock smashes Scissors. Player loses. :(");
+				return "Rock smashes Scissors. Player loses. :(";
 			} else {
-				console.log("It's a tie. Play again.")
+				return "It's a tie. Play again.";
 			}
 		}
 
@@ -47,21 +47,25 @@
 
 			if (playerSelection != null) {
 				if (playerSelection.toLowerCase() === "rock") {
-					playGame("Rock", computerSelection);
+					console.log(playGame("Rock", computerSelection));
 					return;
 				} else if (playerSelection.toLowerCase() === "paper") {
-					playGame("Paper", computerSelection);
+					console.log(playGame("Paper", computerSelection));
 					return;
 				} else if (playerSelection.toLowerCase() === "scissors") {
-					playGame("Scissors", computerSelection);
+					console.log(playGame("Scissors", computerSelection));
 					return;
 				}
 			}
 			console.log("Invalid selection. Please enter 'Rock', 'Paper', or 'Scissors'")
 		}
-		while (true) {
+
+		for(let i = 0; i < 5; i++) {
 			game();
 		}
+		// while (true) {
+		// 	game();
+		// }
 	</script>
 </body>
 </html>
